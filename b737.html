@@ -81,6 +81,63 @@
       color: #005baa;
     }
 
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px 40px; /* 垂直間距30px、水平間距40px */
+      margin-top: 20px;
+      padding: 0 10px;
+      justify-items: center;
+    }
+
+    .gallery-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px; /* 控制最大寬度 */
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-card .overlay span {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .gallery-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.05);
+    }
+
     @media (max-width: 768px) {
       .hero-banner {
         height: 300px;
@@ -108,28 +165,67 @@
     <ul>
       <li><strong>載客數：</strong>85–215 人（依型號不同）</li>
       <li><strong>最大航程：</strong>6,570 公里</li>
+      <li><strong>目前營運最長航線：</strong>首爾仁川 ICN → 羅馬 FCO（大韓航空）</li>
       <li><strong>首飛年份：</strong>1967 年</li>
-      <li><strong>引擎類型：</strong>雙發渦輪風扇引擎</li>
-      <li><strong>最高速度：</strong>876 公里/時（Mach 0.79）</li>
-      <li><strong>機身長：</strong>28.6 至 42.1 公尺（依型號不同）</li>
+      <li><strong>引擎類型：</strong>雙發渦輪風扇引擎（例如 CFMI CFM56 或 LEAP-1B）</li>
+      <li><strong>最高速度：</strong>Mach 0.79（約 876 公里/小時）</li>
+      <li><strong>機身長：</strong>28.6 至 42.1 公尺（視型號而定）</li>
+      <li><strong>翼展：</strong>28.9 至 35.9 公尺（含翼端小翼）</li>
+      <li><strong>最大起飛重量：</strong>約 85 公噸（B737-800）至 88 噸（B737 MAX 9）</li>
+      <li><strong>燃油容量：</strong>約 20,865 公升（視型號而定）</li>
+      <li><strong>特色：</strong>世界上生產數量最多的民航機系列之一，以其高可靠性與操作經濟性聞名，廣泛用於短至中程航線。其衍生版本如 B737-800、B737 MAX 8 等具備更高燃油效率與更舒適的艙內環境，是全球航空公司機隊的主力之一。</li>
     </ul>
   </div>
+  
 
+  <div class="plane-info-card">
+    <h2>圖集</h2>
+    <div class="gallery">
+      <div class="gallery-card">
+        <img src="波音機型/alaska b737.jpg" alt="Alaska B737">
+        <div class="overlay">
+          <span>Alaska Airlines</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/china b737.jpg" alt="China B737">
+        <div class="overlay">
+          <span>China Airlines</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/jeju b737.jpg" alt="Jeju B737">
+        <div class="overlay">
+          <span>Jeju Air</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/ryan b737.jpg" alt="Ryanair B737">
+        <div class="overlay">
+          <span>Ryanair</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/southwest b737.jpg" alt="Southwest B737">
+        <div class="overlay">
+          <span>Southwest Airlines</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <script>
-    // 修改淡出效果，加上最小透明度限制
     const banner = document.getElementById('banner');
-
     window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const maxScroll = 300;
-    const minOpacity = 0.4; // 不會淡到完全看不到
-
-    if (scrollY < maxScroll) {
+      const scrollY = window.scrollY;
+      const maxScroll = 300;
+      const minOpacity = 0.4;
+      if (scrollY < maxScroll) {
         const opacity = 1 - (scrollY / maxScroll);
         banner.style.opacity = Math.max(opacity, minOpacity);
-    } else {
+      } else {
         banner.style.opacity = minOpacity;
-    }
+      }
     });
   </script>
 </body>

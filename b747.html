@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Boeing 747 詳細資料</title>
-  <!-- 字體設定 -->
+
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    /* 全域樣式 */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+        font-family: 'Inter', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
     }
-    /* 橫幅樣式 */
     .hero-banner {
       position: relative;
       width: 100%;
@@ -32,6 +32,7 @@
       transition: opacity 0.3s ease;
       z-index: 0;
     }
+
     .hero-banner::after {
       content: "";
       position: absolute;
@@ -39,6 +40,7 @@
       background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
       z-index: 1;
     }
+
     .hero-text {
       position: relative;
       z-index: 2;
@@ -49,7 +51,7 @@
       letter-spacing: 2px;
       text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
     }
-    /* 資訊卡樣式 */
+
     .plane-info-card {
       max-width: 800px;
       margin: 40px auto;
@@ -58,31 +60,97 @@
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
+
     .plane-info-card h2 {
       margin-bottom: 20px;
       font-size: 28px;
       border-bottom: 2px solid #ccc;
       padding-bottom: 10px;
     }
+
     .plane-info-card ul {
       list-style-type: none;
     }
+
     .plane-info-card li {
       margin-bottom: 12px;
       font-size: 18px;
     }
+
     .plane-info-card li strong {
       color: #005baa;
     }
-    /* 響應式設計 */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px 40px;
+      margin-top: 20px;
+      padding: 0 10px;
+      justify-items: center;
+    }
+
+    .gallery-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 16 / 9; /* 新增這行：強制 16:9 比例 */
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 確保圖片裁切滿框、但不變形 */
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+
+    .gallery-card .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-card .overlay span {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .gallery-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.05);
+    }
+
     @media (max-width: 768px) {
       .hero-banner {
         height: 300px;
       }
+
       .hero-text {
         font-size: 28px;
         margin-bottom: 20px;
       }
+
       .plane-info-card {
         margin: 20px;
         padding: 20px;
@@ -98,35 +166,63 @@
   <div class="plane-info-card">
     <h2>飛機基本資料</h2>
     <ul>
-      <li><strong>載客數：</strong>467 人（3 艙等） / 581 人（2 艙等）</li>
-      <li><strong>最大航程：</strong>14,815 公里</li>
+      <li><strong>載客數：</strong>366–660 人（依型號與座艙配置）</li>
+      <li><strong>最大航程：</strong>14,320 公里（747-8）</li>
+      <li><strong>目前營運最長航線：</strong>紐約 JFK → 香港 HKG（國泰航空，曾由 747-400 執飛）</li>
       <li><strong>首飛年份：</strong>1969 年</li>
-      <li><strong>引擎類型：</strong>4 × General Electric GEnx-2B67 渦輪風扇引擎</li>
-      <li><strong>最高速度：</strong>Mach 0.855（約 988 公里/時）</li>
-      <li><strong>機身長：</strong>76.3 公尺</li>
-      <li><strong>翼展：</strong>68.5 公尺</li>
-      <li><strong>最大起飛重量：</strong>442,200 公斤</li>
-      <li><strong>燃油容量：</strong>242,470 公升</li>
+      <li><strong>引擎類型：</strong>四具渦輪風扇引擎（如 GE CF6、PW4000、RR RB211）</li>
+      <li><strong>最高速度：</strong>Mach 0.85（約 988 公里/小時）</li>
+      <li><strong>機身長：</strong>70.6 公尺（747-8）</li>
+      <li><strong>翼展：</strong>68.4 公尺（747-8）</li>
+      <li><strong>最大起飛重量：</strong>約 447 噸</li>
+      <li><strong>燃油容量：</strong>約 238,610 公升</li>
+      <li><strong>特色：</strong>Boeing 747 是第一款寬體噴射客機，也是全球第一架擁有雙層甲板設計的長程飛機。憑藉龐大的載客量與航程能力，被譽為「空中女王」，曾長期主導全球洲際航線，成為航空史上最具代表性的機型之一。</li>
     </ul>
   </div>
 
+  <div class="plane-info-card">
+    <h2>圖集</h2>
+    <div class="gallery">
+      <div class="gallery-card">
+        <img src="波音機型/atlas b747.jpg" alt="Atlas B747">
+        <div class="overlay">
+          <span>Atlas Air</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/cargolux b747.jpg" alt="Cargolux B747">
+        <div class="overlay">
+          <span>Cargolux</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/china b747.jpg" alt="China Airlines B747">
+        <div class="overlay">
+          <span>China Airlines</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/lufthansa b747.jpg" alt="Lufthansa B747">
+        <div class="overlay">
+          <span>Lufthansa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // 修改淡出效果，加上最小透明度限制
     const banner = document.getElementById('banner');
-
     window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const maxScroll = 300;
-    const minOpacity = 0.4; // 不會淡到完全看不到
-
-    if (scrollY < maxScroll) {
+      const scrollY = window.scrollY;
+      const maxScroll = 300;
+      const minOpacity = 0.4;
+      if (scrollY < maxScroll) {
         const opacity = 1 - (scrollY / maxScroll);
         banner.style.opacity = Math.max(opacity, minOpacity);
-    } else {
+      } else {
         banner.style.opacity = minOpacity;
-    }
+      }
     });
-
   </script>
 </body>
 </html>
