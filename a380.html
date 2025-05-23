@@ -81,20 +81,63 @@
       color: #005baa;
     }
 
-    @media (max-width: 768px) {
-      .hero-banner {
-        height: 300px;
-      }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px 40px;
+      margin-top: 20px;
+      padding: 0 10px;
+      justify-items: center;
+    }
 
-      .hero-text {
-        font-size: 28px;
-        margin-bottom: 20px;
-      }
+    .gallery-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
 
-      .plane-info-card {
-        margin: 20px;
-        padding: 20px;
-      }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-card .overlay span {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .gallery-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -106,31 +149,74 @@
   <div class="plane-info-card">
     <h2>飛機基本資料</h2>
     <ul>
-      <li><strong>載客數：</strong>555–850 人（依型號不同）</li>
+      <li><strong>載客數：</strong>最多可搭載超過 850 人（全經濟艙配置）</li>
       <li><strong>最大航程：</strong>15,200 公里</li>
+      <li><strong>目前營運最長航線：</strong>奧克蘭 AKL → 杜拜 DXB（阿聯酋航空）</li>
       <li><strong>首飛年份：</strong>2005 年</li>
-      <li><strong>引擎類型：</strong>四發渦輪風扇引擎</li>
-      <li><strong>最高速度：</strong>1,020 公里/時（Mach 0.89）</li>
+      <li><strong>引擎類型：</strong>四發渦輪風扇引擎（如 Trent 900 或 GP7200）</li>
+      <li><strong>最高速度：</strong>Mach 0.85（約 903 公里/小時）</li>
       <li><strong>機身長：</strong>72.7 公尺</li>
-      <li><strong>最長航線：</strong>15,200 公里</li>
+      <li><strong>翼展：</strong>79.8 公尺</li>
+      <li><strong>最大起飛重量：</strong>約 560 噸</li>
+      <li><strong>燃油容量：</strong>約 320,000 公升</li>
+      <li><strong>特色：</strong>空巴 A380 是全球最大型的商用客機，擁有雙層客艙，常被用於高密度長程航線，為航空業帶來新的客運容量紀錄。</li>
     </ul>
   </div>
 
+  <div class="plane-info-card">
+    <h2>圖集</h2>
+    <div class="gallery">
+      <div class="gallery-card">
+        <img src="空巴機型/global a380.jpg" alt="Global A380">
+        <div class="overlay">
+          <span>Hi Fly (Global)</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="空巴機型/emirates a380.jpg" alt="Emirates A380">
+        <div class="overlay">
+          <span>Emirates</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="空巴機型/qatar a380.jpg" alt="Qatar A380">
+        <div class="overlay">
+          <span>Qatar Airways</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="空巴機型/lufthansa a380.jpg" alt="Lufthansa A380">
+        <div class="overlay">
+          <span>Lufthansa</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="空巴機型/asiana a380.jpg" alt="Asiana A380">
+        <div class="overlay">
+          <span>Asiana Airlines</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="空巴機型/qantas a380.jpg" alt="Qantas A380">
+        <div class="overlay">
+          <span>Qantas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // 修改淡出效果，加上最小透明度限制
     const banner = document.getElementById('banner');
-
     window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const maxScroll = 300;
-    const minOpacity = 0.4; // 不會淡到完全看不到
-
-    if (scrollY < maxScroll) {
+      const scrollY = window.scrollY;
+      const maxScroll = 300;
+      const minOpacity = 0.4;
+      if (scrollY < maxScroll) {
         const opacity = 1 - (scrollY / maxScroll);
         banner.style.opacity = Math.max(opacity, minOpacity);
-    } else {
+      } else {
         banner.style.opacity = minOpacity;
-    }
+      }
     });
   </script>
 </body>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boeing 飛機介紹</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding-top: 60px;
+      font-family: 'Inter', sans-serif;
+      background-color: #f2f6fa;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(13, 71, 161, 0.85);
+      backdrop-filter: blur(10px);
+      color: white;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 960px;
+      margin: auto;
+      padding: 10px 20px;
+    }
+
+    .nav-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 1.4em;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    .nav-title img {
+      height: 40px;
+      transition: transform 0.3s;
+    }
+
+    .navbar ul {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.4px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover,
+    .navbar ul li a.active {
+      text-decoration: underline;
+      color: #bbdefb;
+    }
+
+    header {
+      background-image: url('原廠塗裝飛機/波音工廠.jpg');
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.5em;
+    }
+
+    header .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    header h1 {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 img {
+      height: 60px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      padding: 25px;
+      color: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      cursor: pointer;
+      min-height: 200px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      border-radius: 12px;
+      z-index: 0;
+    }
+
+    .card h3, .card p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card h3 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1.1em;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-title">
+        <img src="原廠塗裝飛機/Boeing Logo.jpg" alt="Boeing Logo">
+        <span>✈ 世界航空大觀</span>
+      </div>
+      <ul>
+        <li><a href="boeing.html" class="active">Boeing</a></li>
+        <li><a href="airbus.html">Airbus</a></li>
+        <li><a href="embraer.html">Embraer</a></li>
+        <li><a href="comac.html">COMAC</a></li>
+        <li><a href="special livery.html">special-livery</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <div class="overlay"></div>
+    <h1>
+      <img src="原廠塗裝飛機/Boeing Logo.jpg" alt="Boeing Logo">
+      Boeing 系列機型
+    </h1>
+  </header>
+
+  <div class="container">
+    <div class="card" onclick="location.href='b737.html'" style="background-image: url('原廠塗裝飛機/B737.jpg');">
+      <h3>Boeing 737</h3>
+      <p>波音最成功的窄體機型，自1968年服役以來已生產逾萬架。</p>
+    </div>
+    <div class="card" onclick="location.href='b747.html'" style="background-image: url('原廠塗裝飛機/B747.jpg');">
+      <h3>Boeing 747</h3>
+      <p>經典四引擎寬體機，綽號「空中女王」，開創長程載客新紀元。</p>
+    </div>
+    <div class="card" onclick="location.href='b777.html'" style="background-image: url('原廠塗裝飛機/B777.jpg');">
+      <h3>Boeing 777</h3>
+      <p>高效率雙引擎寬體機，是跨洲航線常見機型。</p>
+    </div>
+    <div class="card" onclick="location.href='b787.html'" style="background-image: url('原廠塗裝飛機/B787.jpg');">
+      <h3>Boeing 787 Dreamliner</h3>
+      <p>使用複合材料設計，提高燃油效率與乘客舒適性。</p>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const cards = document.querySelectorAll('.card');
+      const windowHeight = window.innerHeight;
+
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < windowHeight - 100) {
+          card.classList.add('visible');
+        }
+      });
+    });
+
+    window.dispatchEvent(new Event('scroll'));
+  </script>
+</body>
+</html>

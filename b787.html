@@ -81,6 +81,65 @@
       color: #005baa;
     }
 
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px 40px;
+      margin-top: 20px;
+      padding: 0 10px;
+      justify-items: center;
+    }
+
+    .gallery-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-card .overlay span {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .gallery-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.05);
+    }
+
     @media (max-width: 768px) {
       .hero-banner {
         height: 300px;
@@ -106,31 +165,74 @@
   <div class="plane-info-card">
     <h2>飛機基本資料</h2>
     <ul>
-      <li><strong>載客數：</strong>242–330 人（依型號不同）</li>
-      <li><strong>最大航程：</strong>14,140 公里</li>
+      <li><strong>載客數：</strong>242–296 人（依型號與座艙配置）</li>
+      <li><strong>最大航程：</strong>14,010 公里（787-9）</li>
+      <li><strong>目前營運最長航線：</strong>珀斯 PER → 倫敦 LHR（澳洲航空，787-9 執飛）</li>
       <li><strong>首飛年份：</strong>2009 年</li>
-      <li><strong>引擎類型：</strong>雙發渦輪風扇引擎</li>
-      <li><strong>最高速度：</strong>913 公里/時（Mach 0.85）</li>
-      <li><strong>機身長：</strong>56.7 公尺</li>
-      <li><strong>最長航線：</strong>14,140 公里</li>
+      <li><strong>引擎類型：</strong>雙發渦輪風扇引擎（如 Trent 1000 或 GEnx）</li>
+      <li><strong>最高速度：</strong>Mach 0.85（約 903 公里/小時）</li>
+      <li><strong>機身長：</strong>62.8 公尺（787-9）</li>
+      <li><strong>翼展：</strong>60.1 公尺</li>
+      <li><strong>最大起飛重量：</strong>約 254 噸（787-9）</li>
+      <li><strong>燃油容量：</strong>約 126,200 公升</li>
+      <li><strong>特色：</strong>波音 787 Dreamliner 是第一款使用大量碳纖維複合材料製成的商用飛機，具有優異的燃油效率、較高艙壓與濕度，提升乘客舒適度，是全球多條長程航線的主力機種。</li>
     </ul>
   </div>
 
+  <div class="plane-info-card">
+    <h2>圖集</h2>
+    <div class="gallery">
+      <div class="gallery-card">
+        <img src="波音機型/canada b787.jpg" alt="Air Canada B787">
+        <div class="overlay">
+          <span>Air Canada</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/etihad b787.jpg" alt="Etihad B787">
+        <div class="overlay">
+          <span>Etihad Airways</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/klm b787.jpg" alt="KLM B787">
+        <div class="overlay">
+          <span>KLM</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/france b787.jpg" alt="Air France B787">
+        <div class="overlay">
+          <span>Air France</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/scoot b787.jpg" alt="Scoot B787">
+        <div class="overlay">
+          <span>Scoot</span>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="波音機型/vietnam b787.jpg" alt="Vietnam B787">
+        <div class="overlay">
+          <span>Vietnam Airlines</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // 修改淡出效果，加上最小透明度限制
     const banner = document.getElementById('banner');
-
     window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const maxScroll = 300;
-    const minOpacity = 0.4; // 不會淡到完全看不到
-
-    if (scrollY < maxScroll) {
+      const scrollY = window.scrollY;
+      const maxScroll = 300;
+      const minOpacity = 0.4;
+      if (scrollY < maxScroll) {
         const opacity = 1 - (scrollY / maxScroll);
         banner.style.opacity = Math.max(opacity, minOpacity);
-    } else {
+      } else {
         banner.style.opacity = minOpacity;
-    }
+      }
     });
   </script>
 </body>

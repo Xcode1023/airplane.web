@@ -15,10 +15,11 @@
     }
 
     body {
-        font-family: 'Inter', sans-serif;
-        background-color: #f4f4f4;
-        color: #333;
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
     }
+
     .hero-banner {
       position: relative;
       width: 100%;
@@ -78,7 +79,66 @@
     }
 
     .plane-info-card li strong {
-      color: #005baa;
+      color: #1976d2;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px 40px;
+      margin-top: 20px;
+      padding: 0 10px;
+      justify-items: center;
+    }
+
+    .gallery-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-card .overlay span {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .gallery-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.05);
     }
 
     @media (max-width: 768px) {
@@ -106,31 +166,62 @@
   <div class="plane-info-card">
     <h2>飛機基本資料</h2>
     <ul>
-      <li><strong>載客數：</strong>140–240 人（依型號不同）</li>
-      <li><strong>最大航程：</strong>6,300 公里</li>
+      <li><strong>載客數：</strong>140–180 人（標準座艙配置）</li>
+      <li><strong>最大航程：</strong>6,300 公里（A320neo）</li>
+      <li><strong>目前營運最長航線：</strong>里斯本 LIS → 波哥大 BOG（葡萄牙航空 TAP，A320neo 執飛）</li>
       <li><strong>首飛年份：</strong>1987 年</li>
-      <li><strong>引擎類型：</strong>雙發渦輪風扇引擎</li>
-      <li><strong>最高速度：</strong>828 公里/時（Mach 0.78）</li>
-      <li><strong>機身長：</strong>37.6 公尺</li>
-      <li><strong>最長航線：</strong>6,300 公里</li>
+      <li><strong>引擎類型：</strong>雙發渦輪風扇引擎（如 CFM56 或 LEAP-1A）</li>
+      <li><strong>最高速度：</strong>Mach 0.82（約 871 公里/小時）</li>
+      <li><strong>機身長：</strong>37.57 公尺</li>
+      <li><strong>翼展：</strong>35.8 公尺（Sharklet 翼尖）</li>
+      <li><strong>最大起飛重量：</strong>約 79 噸（A320neo）</li>
+      <li><strong>燃油容量：</strong>約 26,700 公升</li>
+      <li><strong>特色：</strong>Airbus A320 是第一款採用數位電傳飛控系統的窄體商用飛機，自推出以來大受航空公司歡迎，並發展出多種衍生型號如 A319、A321，成為短中程航線的中堅主力。</li>
     </ul>
   </div>
 
+  <div class="plane-info-card">
+    <h2>圖集</h2>
+    <div class="gallery">
+      <div class="gallery-card">
+        <img src="空巴機型/jetstar a320.jpg" alt="Jetstar A320">
+        <div class="overlay"><span>Jetstar</span></div>
+      </div>
+      <div class="gallery-card">
+        <img src="空巴機型/peach a320.jpg" alt="Peach A320">
+        <div class="overlay"><span>Peach</span></div>
+      </div>
+      <div class="gallery-card">
+        <img src="空巴機型/starlux a320.jpg" alt="Starlux A320">
+        <div class="overlay"><span>Starlux</span></div>
+      </div>
+      <div class="gallery-card">
+        <img src="空巴機型/tiger a320.jpg" alt="Tigerair A320">
+        <div class="overlay"><span>Tigerair</span></div>
+      </div>
+      <div class="gallery-card">
+        <img src="空巴機型/vietjet a320.jpg" alt="VietJet A320">
+        <div class="overlay"><span>VietJet</span></div>
+      </div>
+      <div class="gallery-card">
+        <img src="空巴機型/SAS a320.jpg" alt="SAS A320">
+        <div class="overlay"><span>Scandinavian Airlines</span></div>
+      </div>
+    </div>
+  </div>
+  
   <script>
-    // 修改淡出效果，加上最小透明度限制
     const banner = document.getElementById('banner');
-
     window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const maxScroll = 300;
-    const minOpacity = 0.4; // 不會淡到完全看不到
-
-    if (scrollY < maxScroll) {
+      const scrollY = window.scrollY;
+      const maxScroll = 300;
+      const minOpacity = 0.4;
+      if (scrollY < maxScroll) {
         const opacity = 1 - (scrollY / maxScroll);
         banner.style.opacity = Math.max(opacity, minOpacity);
-    } else {
+      } else {
         banner.style.opacity = minOpacity;
-    }
+      }
     });
   </script>
 </body>

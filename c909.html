@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>COMAC C909 詳細資料</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      background-image: url('原廠塗裝飛機/c909.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+      z-index: 1;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 30px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 48px;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .plane-info-card {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .plane-info-card h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    .plane-info-card ul {
+      list-style-type: none;
+    }
+
+    .plane-info-card li {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .plane-info-card li strong {
+      color: #1a237e;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px 40px;
+      margin-top: 20px;
+      padding: 0 10px;
+      justify-items: center;
+    }
+
+    .gallery-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-card .overlay span {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .gallery-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .hero-banner {
+        height: 300px;
+      }
+
+      .hero-text {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .plane-info-card {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero-banner" id="banner">
+    <div class="hero-text">COMAC C909</div>
+  </div>
+
+  <div class="plane-info-card">
+    <h2>飛機基本資料</h2>
+    <ul>
+      <li><strong>載客數：</strong>78-90 人（視座艙配置而定）</li>
+      <li><strong>最大航程：</strong>3,700 公里</li>
+      <li><strong>首飛年份：</strong>預計 2026 年</li>
+      <li><strong>引擎類型：</strong>雙發渦輪風扇引擎</li>
+      <li><strong>最高速度：</strong>Mach 0.78（約 860 公里/小時）</li>
+      <li><strong>機身長：</strong>32.3 公尺</li>
+      <li><strong>翼展：</strong>27.6 公尺</li>
+      <li><strong>最大起飛重量：</strong>45,000 公斤</li>
+      <li><strong>燃油容量：</strong>12,000 公升</li>
+      <li><strong>特色：</strong>COMAC C909 是中國自主開發的支線噴射機，旨在增強國內外區域航線市場競爭力。</li>
+    </ul>
+  </div>
+
+  <div class="plane-info-card">
+    <h2>圖集</h2>
+    <div class="gallery">
+        <div class="gallery-card"><img src="商飛機型/air china c909.jpg" alt="Air China C909"><div class="overlay"><span>Air China</span></div></div>
+        <div class="gallery-card"><img src="商飛機型/eastern c909.jpg" alt="Eastern C909"><div class="overlay"><span>China Eastern Airlines</span></div></div>
+        <div class="gallery-card"><img src="商飛機型/lao c909.jpg" alt="Lao Airlines C909"><div class="overlay"><span>Lao Airlines</span></div></div>
+        <div class="gallery-card"><img src="商飛機型/chengdu c909.jpg" alt="Chengdu Airlines C909"><div class="overlay"><span>Chengdu Airlines</span></div></div>
+      </div>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const cards = document.querySelectorAll('.card');
+      const windowHeight = window.innerHeight;
+
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < windowHeight - 100) {
+          card.classList.add('visible');
+        }
+      });
+    });
+
+    window.dispatchEvent(new Event('scroll'));
+  </script>
+</body>
+</html>

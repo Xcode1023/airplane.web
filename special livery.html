@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>彩繪機特輯</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding-top: 60px;
+      font-family: 'Inter', sans-serif;
+      background-color: #f2f6fa;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(106, 27, 154, 0.85);
+      backdrop-filter: blur(10px);
+      color: white;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 960px;
+      margin: auto;
+      padding: 10px 20px;
+    }
+
+    .nav-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 1.4em;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    .nav-title img {
+      height: 40px;
+      transition: transform 0.3s;
+    }
+
+    .navbar ul {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.4px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover,
+    .navbar ul li a.active {
+      text-decoration: underline;
+      color: #e1bee7;
+    }
+
+    header {
+      background-image: url('原廠塗裝飛機/彩繪機背景.jpg');
+      height: 300px;
+      background-size: cover;
+      background-position: center top;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.5em;
+    }
+
+    header .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    header h1 {
+      position: relative;
+      z-index: 2;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .livery-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      cursor: pointer;
+      aspect-ratio: 16 / 6;
+    }
+
+    .livery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .livery-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .livery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 12px;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .livery-card:hover .livery-overlay {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-title">
+        <img src="原廠塗裝飛機/special-livery-logo.png" alt="Logo">
+        <span>✈ 世界航空大觀</span>
+      </div>
+      <ul>
+        <li><a href="boeing.html">Boeing</a></li>
+        <li><a href="airbus.html">Airbus</a></li>
+        <li><a href="embraer.html">Embraer</a></li>
+        <li><a href="comac.html">COMAC</a></li>
+        <li><a href="special livery.html" class="active">special-livery</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <div class="overlay"></div>
+    <h1>彩繪機特輯</h1>
+  </header>
+
+  <div class="gallery-container">
+    <div class="livery-card">
+        <img src="彩繪機/ana future promise b787.jpg" alt="ANA Future Promise B787">
+        <div class="livery-overlay">ANA Future Promise B787</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/ana r2d2 b787.jpg" alt="ANA R2D2 B787">
+        <div class="livery-overlay">ANA R2D2 B787</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/eva pink a320.jpg" alt="EVA Pink A320">
+        <div class="livery-overlay">EVA Pink A320</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/eva sanrio b777.jpeg" alt="EVA Sanrio B777">
+        <div class="livery-overlay">EVA Sanrio B777</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/china boeing b777.jpg" alt="China Boeing B777">
+        <div class="livery-overlay">China Boeing B777</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/china airbus a350.jpg" alt="China Airbus A350">
+        <div class="livery-overlay">China Airbus A350</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/china pokemon a320.jpg" alt="China Pokemon A320">
+        <div class="livery-overlay">China Pokemon A320</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/lufthansa help a320.jpg" alt="Lufthansa Help A320">
+        <div class="livery-overlay">Lufthansa Help A320</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/alaska star wars b737.jpg" alt="Alaska Star Wars B737">
+        <div class="livery-overlay">Alaska Star Wars B737</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/delta usa a350.jpg" alt="Delta USA A350">
+        <div class="livery-overlay">Delta USA A350</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/emirates nba a380.jpg" alt="Emirates NBA A380">
+        <div class="livery-overlay">Emirates NBA A380</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/emirates destination a380.jpg" alt="Emirates Destination A380">
+        <div class="livery-overlay">Emirates Destination A380</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/qatar fifa b777.jpg" alt="Qatar FIFA B777">
+        <div class="livery-overlay">Qatar FIFA B777</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/qatar f1 b777.jpg" alt="Qatar F1 B777">
+        <div class="livery-overlay">Qatar F1 B777</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/etihad chennai a320.jpg" alt="Etihad Chennai A320">
+        <div class="livery-overlay">Etihad Chennai A320</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/etihad superhero b787.jpg" alt="Etihad Superhero B787">
+        <div class="livery-overlay">Etihad Superhero B787</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/etihad manchester b787.jpg" alt="Etihad Manchester City B787">
+        <div class="livery-overlay">Etihad Manchester City B787</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/iceland northern lights b757.jpg" alt="Iceland Northern Lights B757">
+        <div class="livery-overlay">Iceland Northern Lights B757</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/ana turtle a380.jpg" alt="ANA Turtle A380">
+        <div class="livery-overlay">ANA Turtle A380</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/delta 100 years a350.jpg" alt="Delta 100 Years A350">
+        <div class="livery-overlay">Delta 100 Years A350</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/eastern disney a330.jpg" alt="Eastern Disney A330">
+        <div class="livery-overlay">Eastern Disney A330</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/azul brazil a330.jpg" alt="Azul Brazil A330">
+        <div class="livery-overlay">Azul Brazil A330</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/baltic a220.jpg" alt="Baltic A220">
+        <div class="livery-overlay">Baltic A220</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/jal myaku b787.jpg" alt="JAL Myaku Myaku B787">
+        <div class="livery-overlay">JAL Myaku Myaku B787</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/air china blue peony a320.jpg" alt="Air China Blue Peony A320">
+        <div class="livery-overlay">Air China Blue Peony A320</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/sichuan panda a350.jpg" alt="Sichuan Panda A350">
+        <div class="livery-overlay">Sichuan Panda A350</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/aeromexico b787.jpg" alt="Aeromexico B787">
+        <div class="livery-overlay">Aeromexico B787</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/latam star wars b777.jpg" alt="LATAM Star Wars B777">
+        <div class="livery-overlay">LATAM Star Wars B777</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/brussels atom a320.jpg" alt="Brussels Atomium A320">
+        <div class="livery-overlay">Brussels Atomium A320</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/brussels devil a320.jpg" alt="Brussels Devil A320">
+        <div class="livery-overlay">Brussels Devil A320</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/aa retro b737.jpg" alt="AA Retro B737">
+        <div class="livery-overlay">AA Retro B737</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/aeroflot 95 years a320.jpg" alt="Aeroflot 95 Years A320">
+        <div class="livery-overlay">Aeroflot 95 Years A320</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/aeroflot cska a320.jpg" alt="Aeroflot CSKA A320">
+        <div class="livery-overlay">Aeroflot CSKA A320</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/brunei a320.jpg" alt="Brunei A320">
+        <div class="livery-overlay">Brunei Tourism A320</div>
+      </div>
+      <div class="livery-card">
+        <img src="彩繪機/cathay spirit b777.jpg" alt="Cathay Spirit B777">
+        <div class="livery-overlay">Cathay Spirit B777</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/china blue magpie a350.jpg" alt="China Blue Magpie A350">
+        <div class="livery-overlay">China Blue Magpie A350</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/eastern shanghai museum b777.jpg" alt="Eastern Shanghai Museum B777">
+        <div class="livery-overlay">Eastern Shanghai Museum B777</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/eastern toy story a330.jpg" alt="Eastern Toy Story A330">
+        <div class="livery-overlay">Eastern Toy Story A330</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/hainan kungfu panda b787.jpg" alt="Hainan Kungfu Panda B787">
+        <div class="livery-overlay">Hainan Kungfu Panda B787</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/jta b737.jpg" alt="JTA B737">
+        <div class="livery-overlay">JTA B737</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/kulula b737.jpg" alt="Kulula B737">
+        <div class="livery-overlay">Kulula B737</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/loong pop land a320.jpg" alt="Loong Pop Land A320">
+        <div class="livery-overlay">Loong Pop Land A320</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/westjet disney b737.jpg" alt="WestJet Disney B737">
+        <div class="livery-overlay">WestJet Disney B737</div>
+      </div> 
+      <div class="livery-card">
+        <img src="彩繪機/xiamen universal b737.jpg" alt="Xiamen Universal B737">
+        <div class="livery-overlay">Xiamen Universal B737</div>
+      </div>      
+  </div>
+
+</body>
+</html>

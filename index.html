@@ -3,64 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>世界航空大觀</title>
-  <link rel="stylesheet" href="style.css">
+  <title>世界航空大觀首頁</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-image: url('彩繪機/china airbus a350.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #f2f6fa;
+      padding-top: 60px;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(33, 33, 33, 0.9);
+      backdrop-filter: blur(10px);
+      color: white;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 960px;
+      margin: auto;
+      padding: 10px 20px;
+    }
+
+    .nav-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 1.4em;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    .navbar ul {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.4px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      text-decoration: underline;
+      color: #ffeb3b;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-card {
+      position: relative;
+      height: 160px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #ffffff;
+    }
+
+    .section-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      z-index: 0;
+    }
+
+    .section-card span {
+      position: relative;
+      z-index: 1;
+      color: white;
+      font-size: 2em;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="overlay"></div>
-    <h1>世界航空大觀</h1>
-  </header>
-
-  <div class="container">
-    <!-- Boeing -->
-    <div class="company-section boeing">
-      <h2><img src="原廠塗裝飛機/Boeing Logo.jpg" alt="Boeing Logo" class="logo" ></h2>
-      <div class="card" onclick="location.href='b737.html'" style="background-image: url('原廠塗裝飛機/B737.jpg');">
-        <h3>Boeing 737</h3>
-        <p>波音 737 是波音最成功的窄體民航機，適合短至中程航線，自1968年首次投入使用後已生產超過一萬架。擁有高度的可靠性與經濟效益。</p>
-      </div>
-      <div class="card" onclick="location.href='b747.html'" style="background-image: url('原廠塗裝飛機/B747.jpg');">
-        <h3>Boeing 747</h3>
-        <p>被譽為「空中女王」，747 是第一種寬體噴射客機，以其獨特的雙層駕駛艙和超高載客量聞名，是國際長途航班的經典選擇。</p>
-      </div>
-      <div class="card" onclick="location.href='b777.html'" style="background-image: url('原廠塗裝飛機/B777.jpg');">
-        <h3>Boeing 777</h3>
-        <p>長程雙引擎寬體飛機，配備現代化駕駛艙與高度燃油效率。廣泛應用於全球跨洲航線。</p>
-      </div>
-      <div class="card" onclick="location.href='b787.html'" style="background-image: url('原廠塗裝飛機/B787.jpg');">
-        <h3>Boeing 787 Dreamliner</h3>
-        <p>採用先進複合材料結構，提升航程與乘客舒適度，是波音目前最先進的遠程客機之一。</p>
-      </div>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-title">✈ 世界航空大觀</div>
+      <ul>
+        <li><a href="boeing.html">Boeing</a></li>
+        <li><a href="airbus.html">Airbus</a></li>
+        <li><a href="embraer.html">Embraer</a></li>
+        <li><a href="comac.html">COMAC</a></li>
+        <li><a href="special livery.html">special-livery</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Airbus -->
-    <div class="company-section airbus">
-      <h2><img src="原廠塗裝飛機/Airbus Logo.jpg" alt="Airbus Logo" class="logo"></h2>
-      <div class="card" onclick="location.href='a320.html'" style="background-image: url('原廠塗裝飛機/A320.jpg');">
-        <h3>Airbus A320</h3>
-        <p>全球最受歡迎的單走道飛機，配備 Fly-by-wire 控制系統，效率與安全性兼具。常見於區域與短程航線。</p>
-      </div>
-      <div class="card" onclick="location.href='a330.html'" style="background-image: url('原廠塗裝飛機/A330.jpg');">
-        <h3>Airbus A330</h3>
-        <p>中長程雙引擎寬體機，擁有良好的燃油效率和座艙舒適性，是空巴的重要主力機型之一。</p>
-      </div>
-      <div class="card" onclick="location.href='a340.html'" style="background-image: url('原廠塗裝飛機/A340.jpg');">
-        <h3>Airbus A340</h3>
-        <p>擁有四具引擎與超長航程，曾為歐洲與亞洲國家執飛高緯度極地航線的重要選擇。</p>
-      </div>
-      <div class="card" onclick="location.href='a350.html'" style="background-image: url('原廠塗裝飛機/A350.jpg');">
-        <h3>Airbus A350</h3>
-        <p>新一代寬體飛機，搭載先進航電與複合材料，提供卓越的環保表現與乘客體驗。</p>
-      </div>
-      <div class="card" onclick="location.href='a380.html'" style="background-image: url('原廠塗裝飛機/A380.jpg');">
-        <h3>Airbus A380</h3>
-        <p>世界最大客機，擁有雙層全長座艙，可搭載超過800名乘客，是航空史上的巨無霸代表作。</p>
-      </div>
+  <div class="main-container">
+    <div class="section-card" style="background-image: url('原廠塗裝飛機/Boeing Logo.jpg');" onclick="location.href='boeing.html'">
+      <span>Boeing</span>
+    </div>
+    <div class="section-card" style="background-image: url('原廠塗裝飛機/Airbus Logo.jpg');" onclick="location.href='airbus.html'">
+      <span>Airbus</span>
+    </div>
+    <div class="section-card" style="background-image: url('原廠塗裝飛機/Embraer Logo.jpg');" onclick="location.href='embraer.html'">
+      <span>Embraer</span>
+    </div>
+    <div class="section-card" style="background-image: url('原廠塗裝飛機/COMAC Logo.jpg');" onclick="location.href='comac.html'">
+      <span>COMAC</span>
+    </div>
+    <div class="section-card" style="background-image: url('原廠塗裝飛機/special-livery-logo.png');" onclick="location.href='special livery.html'">
+      <span>Special Livery</span>
     </div>
   </div>
-
   <script>
     window.addEventListener('scroll', () => {
       const cards = document.querySelectorAll('.card');
