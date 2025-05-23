@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>世界航空大觀首頁</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -13,66 +13,93 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-image: url('彩繪機/china airbus a350.jpg');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #f2f6fa;
-      padding-top: 60px;
-    }
+    font-family: 'Inter', sans-serif;
+    background-image: url('空巴機型/starlux a350.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f2f6fa;
+    padding-top: 60px;
+    position: relative;
+  }
 
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(33, 33, 33, 0.9);
-      backdrop-filter: blur(10px);
-      color: white;
-      z-index: 999;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* 背景加深遮罩，數字越大越暗 */
+    pointer-events: none;
+    z-index: -1;
+  }
 
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 960px;
-      margin: auto;
-      padding: 10px 20px;
-    }
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(210, 173, 114, 0.971); /* 背景調暗一點 */
+    backdrop-filter: blur(10px);
+    color: white;
+    z-index: 999;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* 陰影稍微加深 */
+    height: 60px; /* 固定導覽列高度 */
+  }
 
-    .nav-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: bold;
-      font-size: 1.4em;
-      font-family: 'Barlow Condensed', sans-serif;
-    }
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: auto;
+    padding: 0 20px; /* 移除上下 padding，改用高度統一 */
+    height: 60px; /* 與.navbar同高 */
+  }
 
-    .navbar ul {
-      display: flex;
-      gap: 16px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+  .nav-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.4em;
+    font-family: 'Barlow Condensed', sans-serif;
+    height: 60px;  /* 與導覽列高度一致 */
+    line-height: 60px; /* 文字垂直置中 */
+  }
 
-    .navbar ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      letter-spacing: 0.4px;
-      transition: color 0.3s ease;
-    }
+  .nav-title img {
+    height: 40px;
+    transition: transform 0.3s;
+    vertical-align: middle;
+  }
 
-    .navbar ul li a:hover {
+  .navbar ul {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 60px; /* 與導覽列高度一致 */
+    align-items: center; /* 垂直置中 */
+  }
+
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.4px;
+    transition: color 0.3s ease;
+    height: 60px; /* 與導覽列高度一致 */
+    line-height: 60px; /* 文字垂直置中 */
+    display: inline-block;
+  }
+
+
+    .navbar ul li a:hover,
+    .navbar ul li a.active {
       text-decoration: underline;
-      color: #ffeb3b;
+      color: #bbdefb;
     }
 
     .main-container {
@@ -126,16 +153,11 @@
   </style>
 </head>
 <body>
+
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-title">✈ 世界航空大觀</div>
-      <ul>
-        <li><a href="boeing.html">Boeing</a></li>
-        <li><a href="airbus.html">Airbus</a></li>
-        <li><a href="embraer.html">Embraer</a></li>
-        <li><a href="comac.html">COMAC</a></li>
-        <li><a href="special livery.html">special-livery</a></li>
-      </ul>
+      
     </div>
   </nav>
 
@@ -152,10 +174,11 @@
     <div class="section-card" style="background-image: url('原廠塗裝飛機/COMAC Logo.jpg');" onclick="location.href='comac.html'">
       <span>COMAC</span>
     </div>
-    <div class="section-card" style="background-image: url('原廠塗裝飛機/special-livery-logo.png');" onclick="location.href='special livery.html'">
+    <div class="section-card" style="background-image: url('原廠塗裝飛機/special-livery-logo.jpg');" onclick="location.href='special livery.html'">
       <span>Special Livery</span>
     </div>
   </div>
+
   <script>
     window.addEventListener('scroll', () => {
       const cards = document.querySelectorAll('.card');
